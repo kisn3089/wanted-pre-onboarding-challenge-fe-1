@@ -8,17 +8,17 @@ const Auth = () => {
         <div className="text">Login</div>
         <div className="wrap">
           <div className="form-row">
-            <label htmlFor="email">Email</label>
             <input
               type="email"
               className="email"
               id="email"
               placeholder="test@test.com"
             />
+            <label htmlFor="email">Email</label>
           </div>
           <div className="form-row">
-            <label htmlFor="password">Password</label>
             <input type="password" className="password" id="password" />
+            <label htmlFor="password">Password</label>
           </div>
         </div>
       </form>
