@@ -1,0 +1,40 @@
+section {
+  margin: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  padding: 50px;
+  width: 50vh;
+  height: 55vh;
+  border: #fff solid 1px;
+}
+
+.text {
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.form-row input {
+  width: 80%;
+  padding: 10px 5px;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.form-row {
+  position: relative;
+  margin: 25px auto;
+}
+
+.form-row label {
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  color: #111;
+}
