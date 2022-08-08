@@ -25,13 +25,13 @@ section {
 }
 
 .form-row label {
-  color: rgb(43, 173, 41);
+  color: rgb(0, 153, 255);
   font-size: 18px;
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .form-row input {
@@ -43,5 +43,5 @@ section {
 
 .form-row input:focus + label {
   left: 80%;
-  font-size: 12px;
+  font-size: 13px;
 }
