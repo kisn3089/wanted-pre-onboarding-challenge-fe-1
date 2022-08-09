@@ -60,13 +60,14 @@ button {
   border-radius: 5px;
   font-size: 15px;
   font-weight: 600;
-  background-color: #fff;
   box-shadow: 0 0 10px 1px #fff;
   border-color: #fff;
   cursor: pointer;
   color: #111;
   transform: translateY(0);
   transition: 0.4s ease-in-out;
+  outline: none;
+  border: none;
 }
 
 button:hover {
