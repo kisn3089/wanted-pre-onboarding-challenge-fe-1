@@ -12,12 +12,12 @@ const Nav = () => {
         <ul>
           <li>
             <NavLink to="/auth" className="li">
-              Login
+              LOGIN
             </NavLink>
           </li>
           <li>
             <NavLink to="/todo" className="li">
-              Todo
+              TODO
             </NavLink>
           </li>
         </ul>

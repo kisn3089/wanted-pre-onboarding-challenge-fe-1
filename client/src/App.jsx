@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/home/Home";
-import Auth from "./components/auth/Auth";
-import Todo from "./components/Todo/Todo";
+import Auth from "./pages/Auth";
+import Todo from "./pages/Todos";
 import Nav from "./components/nav/Nav";
 
 function App() {
