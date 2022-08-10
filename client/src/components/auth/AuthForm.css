@@ -12,7 +12,7 @@ section {
   border: #fff solid 1px;
 }
 
-.text {
+/* .text {
   font-size: 27px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -22,7 +22,7 @@ section {
 .form-row {
   position: relative;
   margin: 25px auto;
-}
+} */
 
 label {
   color: rgb(0, 153, 255);

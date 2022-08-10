@@ -7,8 +7,9 @@ const TextH1 = styled.h1`
   color: #fff;
 `;
 
-function h1({ children, ...rest }) {
-  return <TextH1 {...rest}>{children}</TextH1>;
-}
+// function h1({ children, ...rest }) {
+//   return <TextH1 {...rest}>{children}</TextH1>;
+// }
 
-export default TextH1;
+// export default TextH1;
+export { TextH1 };
