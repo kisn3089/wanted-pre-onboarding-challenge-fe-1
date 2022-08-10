@@ -1,9 +1,10 @@
 import React, { useState, useRef } from "react";
-import "./AuthForm.css";
-import styled from "styled-components";
 import { TextH1 } from "./TextH1";
 import { InputWrap } from "./InputWrap";
-import { InputLabel } from "./InputLabel";
+import { InputLabel, Label } from "./InputLabel";
+import { Section } from "./Section";
+import { Form } from "./Form";
+import { Button, ButtonWrap } from "./Button";
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -35,11 +36,11 @@ const AuthForm = () => {
   };
 
   return (
-    <section>
-      <form className="form" onSubmit={submitHandler}>
+    <Section>
+      <Form className="form" onSubmit={submitHandler}>
         <TextH1>{isLogin ? "LOGIN" : "SIGN UP"}</TextH1>
         <InputWrap className="form-row">
-          <input
+          <InputLabel
             type="email"
             className="email"
             id="email"
@@ -48,10 +49,10 @@ const AuthForm = () => {
             required
             onChange={emailValidInput}
           />
-          <label htmlFor="email">Email</label>
+          <Label htmlFor="email">Email</Label>
         </InputWrap>
         <InputWrap className="form-row">
-          <input
+          <InputLabel
             type="password"
             className="password"
             id="password"
@@ -60,23 +61,23 @@ const AuthForm = () => {
             minLength="8"
             onChange={passwordValidInput}
           />
-          <label htmlFor="password">Password</label>
+          <Label htmlFor="password">Password</Label>
         </InputWrap>
-        <div className="btn-wrap">
-          <button type="submit" disabled={!(emailValid && passworValid)}>
+        <ButtonWrap className="btn-wrap">
+          <Button type="submit" disabled={!(emailValid && passworValid)}>
             {isLogin ? "LOGIN" : "SIGN UP"}
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
             onClick={() => {
               setIsLogin((prev) => !prev);
             }}
           >
             {isLogin ? "SIGN UP" : "LOGIN"}
-          </button>
-        </div>
-      </form>
-    </section>
+          </Button>
+        </ButtonWrap>
+      </Form>
+    </Section>
   );
 };
 
