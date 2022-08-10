@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./AuthForm.css";
+import styled from "styled-components";
+import TextH1 from "./textH1";
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -32,7 +34,7 @@ const AuthForm = () => {
   return (
     <section>
       <form className="form" onSubmit={submitHandler}>
-        <div className="text">{isLogin ? "LOGIN" : "SIGN UP"}</div>
+        <TextH1>{isLogin ? "LOGIN" : "SIGN UP"}</TextH1>
         <div className="form-row">
           <input
             type="email"
@@ -43,9 +45,7 @@ const AuthForm = () => {
             required
             onChange={emailValidInput}
           />
-          <label htmlFor="email" className="text-la">
-            Email
-          </label>
+          <label htmlFor="email">Email</label>
         </div>
         <div className="form-row">
           <input
@@ -57,9 +57,7 @@ const AuthForm = () => {
             minLength="8"
             onChange={passwordValidInput}
           />
-          <label htmlFor="password" className="text-la">
-            Password
-          </label>
+          <label htmlFor="password">Password</label>
         </div>
         <div className="btn-wrap">
           <button type="submit" disabled={!(emailValid && passworValid)}>
