@@ -1,15 +1,18 @@
-import React, { useState, useRef } from "react";
-import { TextH1 } from "./TextH1";
-import { InputWrap } from "./InputWrap";
-import { InputLabel, Label } from "./InputLabel";
-import { Section } from "./Section";
-import { Form } from "./Form";
-import { Button, ButtonWrap } from "./Button";
+import React, { useState, useRef, useContext } from "react";
+import { TextH1 } from "../../style/TextH1";
+import { InputWrap } from "./style/InputWrap";
+import { InputLabel, Label } from "./style/InputLabel";
+import { Section } from "../../style/Section";
+import { Form } from "./style/Form";
+import { Button, ButtonWrap } from "../../style/Button";
+import AuthContext from "../store/auth-context";
 
 const AuthForm = () => {
+  const AuthCtx = useContext(AuthContext);
   const [isLogin, setIsLogin] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [passworValid, setPasswordValid] = useState(false);
+  const [sign, setSign] = useState(false);
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -32,8 +35,20 @@ const AuthForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    emailRef.current.value = "";
+    passwordRef.current.value = "";
+
+    if (isLogin) {
+    } else {
+      setIsLogin(true);
+      setSign(true);
+    }
+
     console.log("!");
   };
+
+  const storedToke = localStorage.getItem("token");
+  console.log(storedToke);
 
   return (
     <Section>
@@ -63,6 +78,7 @@ const AuthForm = () => {
           />
           <Label htmlFor="password">Password</Label>
         </InputWrap>
+        {sign && "회원가입이 완료되었습니다."}
         <ButtonWrap className="btn-wrap">
           <Button type="submit" disabled={!(emailValid && passworValid)}>
             {isLogin ? "LOGIN" : "SIGN UP"}
