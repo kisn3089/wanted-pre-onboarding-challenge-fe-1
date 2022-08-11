@@ -6,15 +6,17 @@ import { Section } from "../../style/Section";
 import { Form } from "./style/Form";
 import { Button, ButtonWrap } from "../../style/Button";
 import AuthContext from "../store/auth-context";
+import { useNavigate } from "react-router-dom";
 
 const AuthForm = () => {
-  const AuthCtx = useContext(AuthContext);
+  const authCtx = useContext(AuthContext);
   const [isLogin, setIsLogin] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [passworValid, setPasswordValid] = useState(false);
   const [sign, setSign] = useState(false);
   const emailRef = useRef();
   const passwordRef = useRef();
+  const navigate = useNavigate();
 
   // 이메일 유효성
   const emailValidInput = () => {
@@ -23,6 +25,8 @@ const AuthForm = () => {
       emailRef.current.value.includes(".")
     ) {
       setEmailValid(true);
+    } else {
+      setEmailValid(false);
     }
   };
 
@@ -30,25 +34,27 @@ const AuthForm = () => {
   const passwordValidInput = () => {
     if (passwordRef.current.value.length >= 8) {
       setPasswordValid(true);
+    } else {
+      setPasswordValid(false);
     }
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    emailRef.current.value = "";
-    passwordRef.current.value = "";
 
     if (isLogin) {
+      authCtx.login(emailRef.current.value);
+      authCtx.isLoggedIn = true;
+      console.log(emailRef.current.value);
+      navigate("/");
     } else {
       setIsLogin(true);
       setSign(true);
     }
-
+    emailRef.current.value = "";
+    passwordRef.current.value = "";
     console.log("!");
   };
-
-  const storedToke = localStorage.getItem("token");
-  console.log(storedToke);
 
   return (
     <Section>
