@@ -1,8 +1,18 @@
 import styled from "styled-components";
 
-const InputLabel = styled.input`
+const InputWrap = styled.div`
+  position: relative;
+  margin: 25px auto;
+`;
+
+const IsValidP = styled.p`
+  color: red;
+`;
+
+const Input = styled.input`
   width: 80%;
   padding: 10px 5px;
+  // border: 2px solid red;
   border-radius: 5px;
   font-size: 15px;
   &:focus {
@@ -24,4 +34,4 @@ const Label = styled.label`
   transition: all 0.3s ease-in-out;
 `;
 
-export { InputLabel, Label };
+export { InputWrap, IsValidP, Input, Label };

@@ -26,10 +26,10 @@ const Nav = () => {
             <li>
               <NavLink
                 to="/"
-                style={({ isActive }) => ({
-                  color: isActive ? "#a4a4a4" : "#fff",
-                })}
                 className="li"
+                style={({ isActive }) => ({
+                  color: isActive ? "#fff" : "#a4a4a4",
+                })}
               >
                 LOGOUT
               </NavLink>
@@ -38,9 +38,9 @@ const Nav = () => {
           {
             <li>
               <NavLink
-                to="/todo"
+                to="/todos"
                 style={({ isActive }) => ({
-                  color: isActive ? "#a4a4a4" : "#fff",
+                  color: isActive ? "#fff" : "#a4a4a4",
                 })}
                 className="li"
               >

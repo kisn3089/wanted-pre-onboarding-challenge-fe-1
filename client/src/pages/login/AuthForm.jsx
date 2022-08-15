@@ -1,13 +1,17 @@
 import React, { useState, useRef } from "react";
 import { TextH1 } from "style/TextH1";
-import { InputWrap } from "components/auth/style/InputWrap";
-import { InputLabel, Label } from "components/auth/style/InputLabel";
+import {
+  InputWrap,
+  Input,
+  Label,
+  IsValidP,
+} from "pages/login/styled/InputWrap";
 import { Section } from "style/Section";
-import { Form } from "components/auth/style/Form";
+import { Form } from "pages/login/styled/Form";
 import { Button, ButtonWrap } from "style/Button";
 import { useNavigate } from "react-router-dom";
 
-const AuthForm = (props) => {
+const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [passworValid, setPasswordValid] = useState(false);
@@ -52,12 +56,14 @@ const AuthForm = (props) => {
     passwordRef.current.value = "";
   };
 
+  let isq = false;
+
   return (
     <Section>
       <Form className="form" onSubmit={submitHandler}>
         <TextH1>{isLogin ? "LOGIN" : "SIGN UP"}</TextH1>
         <InputWrap className="form-row">
-          <InputLabel
+          <Input
             type="email"
             className="email"
             id="email"
@@ -67,9 +73,10 @@ const AuthForm = (props) => {
             onChange={emailValidInput}
           />
           <Label htmlFor="email">Email</Label>
+          <IsValidP>qwe</IsValidP>
         </InputWrap>
         <InputWrap className="form-row">
-          <InputLabel
+          <Input
             type="password"
             className="password"
             id="password"
