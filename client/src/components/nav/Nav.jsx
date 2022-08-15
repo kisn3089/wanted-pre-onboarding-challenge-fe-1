@@ -1,13 +1,7 @@
-import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./Nav.css";
-import AuthContext from "../store/auth-context";
 
 const Nav = () => {
-  const authCtx = useContext(AuthContext);
-
-  const isLoggedIn = authCtx.isLoggedIn;
-
   return (
     <header className="header">
       <NavLink to="/" className="logo">
@@ -15,7 +9,7 @@ const Nav = () => {
       </NavLink>
       <nav>
         <ul>
-          {!isLoggedIn && (
+          {
             <li>
               <NavLink
                 to="/auth"
@@ -27,8 +21,8 @@ const Nav = () => {
                 LOGIN
               </NavLink>
             </li>
-          )}
-          {isLoggedIn && (
+          }
+          {
             <li>
               <NavLink
                 to="/"
@@ -40,8 +34,8 @@ const Nav = () => {
                 LOGOUT
               </NavLink>
             </li>
-          )}
-          {isLoggedIn && (
+          }
+          {
             <li>
               <NavLink
                 to="/todo"
@@ -53,7 +47,7 @@ const Nav = () => {
                 TODO
               </NavLink>
             </li>
-          )}
+          }
         </ul>
       </nav>
     </header>

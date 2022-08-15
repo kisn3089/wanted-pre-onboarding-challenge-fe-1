@@ -1,15 +1,13 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef } from "react";
 import { TextH1 } from "../../style/TextH1";
 import { InputWrap } from "./style/InputWrap";
 import { InputLabel, Label } from "./style/InputLabel";
 import { Section } from "../../style/Section";
 import { Form } from "./style/Form";
 import { Button, ButtonWrap } from "../../style/Button";
-import AuthContext from "../store/auth-context";
 import { useNavigate } from "react-router-dom";
 
-const AuthForm = () => {
-  const authCtx = useContext(AuthContext);
+const AuthForm = (props) => {
   const [isLogin, setIsLogin] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [passworValid, setPasswordValid] = useState(false);
@@ -43,17 +41,15 @@ const AuthForm = () => {
     e.preventDefault();
 
     if (isLogin) {
-      authCtx.login(emailRef.current.value);
-      authCtx.isLoggedIn = true;
+      localStorage.setItem("token", emailRef.current.value);
       console.log(emailRef.current.value);
       navigate("/");
-    } else {
+    } else if (!isLogin) {
       setIsLogin(true);
       setSign(true);
     }
     emailRef.current.value = "";
     passwordRef.current.value = "";
-    console.log("!");
   };
 
   return (
