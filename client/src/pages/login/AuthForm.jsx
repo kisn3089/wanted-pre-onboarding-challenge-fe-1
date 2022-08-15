@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
-import { TextH1 } from "../../style/TextH1";
-import { InputWrap } from "./style/InputWrap";
-import { InputLabel, Label } from "./style/InputLabel";
-import { Section } from "../../style/Section";
-import { Form } from "./style/Form";
-import { Button, ButtonWrap } from "../../style/Button";
+import { TextH1 } from "style/TextH1";
+import { InputWrap } from "components/auth/style/InputWrap";
+import { InputLabel, Label } from "components/auth/style/InputLabel";
+import { Section } from "style/Section";
+import { Form } from "components/auth/style/Form";
+import { Button, ButtonWrap } from "style/Button";
 import { useNavigate } from "react-router-dom";
 
 const AuthForm = (props) => {
@@ -99,4 +99,4 @@ const AuthForm = (props) => {
   );
 };
 
-export default AuthForm;
+export default React.memo(AuthForm);
