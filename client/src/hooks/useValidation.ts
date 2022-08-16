@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { isEqual } from "utils/checkValue";
 
 interface StateInterface {
@@ -40,8 +40,8 @@ const initialState: StateInterface = {
   passwordCheck: false,
 };
 
-const useValidation = (mode: "login") => {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+const useValidation = (mode = "login") => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   const disabledCondition = isEqual(mode, "login")
     ? !(state.email && state.password)
     : !(state.email && state.password && state.passwordCheck);

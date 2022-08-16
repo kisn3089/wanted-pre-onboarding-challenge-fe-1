@@ -4,7 +4,7 @@ import {
   Label,
   IsValidP,
 } from "pages/login/styled/InputWrap";
-import React from "react";
+import React, { useRef } from "react";
 import { isEqual, isFirstBiggerThanAfter } from "utils/checkValue";
 
 interface FormInputProps {
@@ -12,7 +12,6 @@ interface FormInputProps {
   name: string;
   text: string;
   placeholder?: string;
-  className: string;
   isValid?: boolean;
   checkValidation: (target: string, validationResult: boolean) => void;
   regexRule?: RegExp;
@@ -30,7 +29,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
       regexRule,
     } = props;
 
-    const inputValueCount = React.useRef<number>(0);
+    const inputValueCount = useRef<number>(0);
 
     const validationFailedString = isEqual(name, "passwordCheck")
       ? "비밀번호가 일치하지 않습니다."
