@@ -1,5 +1,9 @@
-import { isValidDateValue } from "@testing-library/user-event/dist/utils";
-import { InputWrap, Input, Label } from "pages/login/styled/InputWrap";
+import {
+  InputWrap,
+  Input,
+  Label,
+  IsValidP,
+} from "pages/login/styled/InputWrap";
 import React from "react";
 import { isEqual, isFirstBiggerThanAfter } from "utils/checkValue";
 
@@ -53,10 +57,11 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
           placeholder={placeholder}
           onChange={handleChange}
         />
-        <Label htmlFor={name}>Email</Label>
+        <Label htmlFor={name}>{text}</Label>
+        {validationCondition && <IsValidP>{validationFailedString}</IsValidP>}
       </InputWrap>
     );
   }
 );
 
-export default FormInput;
+export default React.memo(FormInput);

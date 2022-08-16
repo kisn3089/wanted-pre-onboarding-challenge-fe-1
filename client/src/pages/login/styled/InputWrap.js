@@ -2,11 +2,16 @@ import styled from "styled-components";
 
 const InputWrap = styled.div`
   position: relative;
-  margin: 25px auto;
+  margin: 40px auto;
 `;
 
 const IsValidP = styled.p`
   color: red;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin: 15px auto;
+  transform: translate(-50%, -50%);
 `;
 
 const Input = styled.input`
